@@ -1,0 +1,44 @@
+{% extends 'Main/base.html' %}
+
+{% block header_section %}
+<!-- No mostrar el header -->
+{% endblock header_section %}
+
+{% block about_section %}
+<!-- No mostrar el about -->
+{% endblock about_section %}
+
+{% block title %}
+Libros
+{% endblock title %}
+
+{% block content_title %}
+<h1 class="text-center my-4" style="padding-top: 90px;">Todos los Libros</h1>
+{% endblock content_title %}
+
+{% block content %}
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Fecha de Publicación</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ejemplo</td>
+                <td>Autor X</td>
+                <td>01/01/2024</td>
+                <td class="text-center">
+                    <button class="btn btn-info btn-sm">Ver Más</button>
+                    <button class="btn btn-warning btn-sm">Editar</button>
+                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
