@@ -122,3 +122,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Ruta base donde se guardan los archivos subidos
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# URL para acceder a esos archivos desde el navegador
+MEDIA_URL = '/media/'
