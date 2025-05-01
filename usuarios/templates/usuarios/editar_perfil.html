@@ -1,0 +1,35 @@
+{% extends 'Main/base.html' %}
+
+{% block header_section %}
+
+{% endblock header_section %}
+
+{% block about_section %}
+
+{% endblock about_section %}
+
+{% block title %}
+Editar Perfil
+{% endblock title %}
+
+{% block content_title %}
+<h1 class="text-center my-4" style="padding-top: 90px;">
+    Editar Perfil
+</h1>
+{% endblock content_title %}
+
+{% block content %}
+
+<form method="post" action="{% url 'usuarios:editar_perfil' %}" enctype="multipart/form-data"
+    class="p-4 bg-light border rounded">
+    {% csrf_token %}
+    {{ formulario.as_p }}
+    {{formulario_infoextra.as_p}}
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <a href="{% url 'usuarios:perfil' %}" class="btn btn-secondary ml-2">Volver</a>
+    </div>
+</form>
+
+
+{% endblock content %}

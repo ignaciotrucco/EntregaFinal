@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import Libro
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from .forms import LibroForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 class LibroListView(ListView):
@@ -17,3 +20,17 @@ class LibroListView(ListView):
 
 class LibroDetailView(DetailView):
     model = Libro
+
+class LibroCreateView(LoginRequiredMixin, CreateView):
+    model = Libro
+    form_class = LibroForm
+    success_url = reverse_lazy('Libros:libros')
+
+class LibroUpdateView(LoginRequiredMixin, UpdateView):
+    model = Libro
+    form_class = LibroForm
+    success_url = reverse_lazy('Libros:libros')
+
+class LibroDeleteView(LoginRequiredMixin, DeleteView):
+    model = Libro
+    success_url = reverse_lazy('Libros:libros')

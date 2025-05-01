@@ -1,0 +1,28 @@
+{% extends 'Main/base.html' %}
+
+{% block header_section %}
+
+{% endblock header_section %}
+
+{% block about_section %}
+
+{% endblock about_section %}
+
+{% block title %}
+Eliminar
+{% endblock title %}
+
+{% block content_title %}
+<h1 class="text-center my-4" style="padding-top: 90px;">Eliminar un Libro</h1>
+{% endblock content_title %}
+
+{% block content %}
+<div class="container my-5">
+    <h2>¿Está seguro de que desea eliminar el libro "{{ object }}"?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar" class="btn btn-danger">
+    </form>
+    <a href="{% url 'Libros:libros' %}" class="btn btn-secondary mt-2">Cancelar</a>
+</div>
+{% endblock content %}

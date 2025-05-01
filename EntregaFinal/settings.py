@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Main',
     "Libros",
+    "usuarios",
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # URL para acceder a esos archivos desde el navegador
 MEDIA_URL = '/media/'
+
+LOGIN_URL = 'usuarios:login'

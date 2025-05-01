@@ -31,9 +31,35 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <!-- Links comunes con mismo estilo -->
                     <li class="nav-item"><a class="nav-link" href="{% url 'Main:index' %}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Main:index' %}#about">Acerca de Mí</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'Libros:libros' %}">Libros</a></li>
+
+                    {% if request.user.is_authenticated %}
+                    <!-- Estilo diferenciado para usuario logueado -->
+                    <li class="nav-item">
+                        <a class="nav-link text-warning fw-bold" href="{% url 'usuarios:perfil' %}">Hola, {{ request.user.username }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <form action="{% url 'usuarios:logout' %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="nav-link btn btn-outline-danger fw-bold" style="border: none;">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+                    {% else %}
+                    <!-- Estilo diferenciado para usuario no logueado -->
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-success fw-bold mx-1"
+                            href="{% url 'usuarios:login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-success fw-bold mx-1"
+                            href="{% url 'usuarios:register' %}">Registrarse</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -43,8 +69,8 @@
     {% endblock header %}
 
     <div class="container">
-            {% block content_title %}
-            {% endblock content_title %}
+        {% block content_title %}
+        {% endblock content_title %}
         {% block content %}
         {% endblock content %}
     </div>

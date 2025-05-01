@@ -1,0 +1,34 @@
+{% extends 'Main/base.html' %}
+
+{% block header_section %}
+
+{% endblock header_section %}
+
+{% block about_section %}
+
+{% endblock about_section %}
+
+{% block title %}
+Iniciar Sesión
+{% endblock title %}
+
+{% block content_title %}
+<h1 class="text-center my-4" style="padding-top: 90px;">
+    Iniciar Sesión
+</h1>
+{% endblock content_title %}
+
+{% block content %}
+
+<form method="post" action="{% url 'usuarios:login' %}">
+    {% csrf_token %}
+
+
+        {{ formulario }}
+
+
+    <input type="submit" value="Iniciar Sesión" class="btn btn-secondary mt-2">
+    <a href="{% url 'Main:index' %}" class="btn btn-secondary mt-2">Volver</a>
+</form>
+
+{% endblock content %}
